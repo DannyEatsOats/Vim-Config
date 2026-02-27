@@ -395,6 +395,7 @@ require('lazy').setup({
   require 'kickstart.plugins.conform', -- Autoformat
   require 'kickstart.plugins.blink', -- Autocompletion
   require 'kickstart.plugins.black-metal', -- Theme
+  require 'kickstart.plugins.themes.nightfox',
   require 'kickstart.plugins.todo', -- Highlight todo, notes, etc in comments
   require 'kickstart.plugins.mini', -- Collection of small plugins
   require 'kickstart.plugins.treesitter', -- Treesitter

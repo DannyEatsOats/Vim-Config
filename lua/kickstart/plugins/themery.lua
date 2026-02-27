@@ -2,6 +2,7 @@ return {
   'zaldih/themery.nvim',
   lazy = false,
   config = function()
+    -- black-metal variants
     local blackmetal_variants = {
       'bathory',
       'burzum',
@@ -21,14 +22,32 @@ return {
       'windir',
     }
 
+    -- convert to a set for O(1) lookup
+    local blackmetal_set = {}
+    for _, name in ipairs(blackmetal_variants) do
+      blackmetal_set[name] = true
+    end
+
+    -- other themes you want installed
+    local other_themes = {
+      'terafox',
+    }
+
+    -- merge both lists for Themery picker
+    local all_themes = vim.list_extend(vim.deepcopy(blackmetal_variants), other_themes)
+
     require('themery').setup {
-      themes = blackmetal_variants, -- these are the names shown in the picker
+      themes = all_themes,
       apply = function(theme)
-        -- Dynamically apply black-metal variant
-        require('black-metal').setup { theme = theme }
-        require('black-metal').load()
+        if blackmetal_set[theme] then
+          -- special handling
+          require('black-metal').setup { theme = theme }
+          require('black-metal').load()
+        else
+          -- normal colorscheme
+          vim.cmd.colorscheme(theme)
+        end
       end,
-      -- optional: store last selected theme
       store = true,
     }
   end,
