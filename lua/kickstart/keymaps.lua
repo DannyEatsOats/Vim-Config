@@ -5,11 +5,10 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
-vim.keymap.set('n', '<Esc>', '<Esc><Esc>', { desc = 'Escape' })
-vim.keymap.set('v', '<Esc>', '<Esc><Esc>', { desc = 'Escape' })
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR><Esc>')
 
 vim.keymap.set('n', 'x', '"_x', { noremap = true, silent = true })
-vim.keymap.set('n', 'dd', '"_dd', { noremap = true, silent = true })
+
 vim.keymap.set('n', 'dw', '"_dw', { noremap = true, silent = true })
 vim.keymap.set('v', 'd', '"_d', { noremap = true, silent = true })
 
@@ -19,8 +18,25 @@ vim.keymap.set('v', 'é', '$', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { noremap = true })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { noremap = true })
 
-vim.keymap.set('n', 'n', 'nzzzv', { noremap = true })
-vim.keymap.set('n', 'n', 'Nzzzv', { noremap = true })
+vim.keymap.set('n', '<leader>y', function()
+  return require('osc52').copy_operator()
+end, { expr = true })
+
+vim.keymap.set('x', '<leader>y', function()
+  require('osc52').copy_visual()
+end)
+
+vim.keymap.set('n', 'n', 'nzzzv')
+vim.keymap.set('n', 'N', 'Nzzzv')
+
+-- Move line down
+-- Move line up
+vim.keymap.set('n', '<A-j>', ':m .+1<CR>==', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-k>', ':m .-2<CR>==', { noremap = true, silent = true })
+
+-- Visual mode (move selection)
+vim.keymap.set('v', '<A-j>', ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
+vim.keymap.set('v', '<A-k>', ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 
 -- Resize Keymaps
 vim.keymap.set('n', '<C-Up>', '<cmd>resize -2<CR>', { noremap = true, silent = true })
@@ -43,11 +59,12 @@ vim.keymap.set('n', '<leader>wc', ':close<CR>', { noremap = true })
 -- Diagnostics
 vim.keymap.set('n', '<S-j>', vim.diagnostic.open_float, { noremap = true })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
-  vim.lsp.handlers.hover,
-  { border = 'rounded', timeout = 50 } -- Adjust timeout (default is high)
-)
-
+vim.lsp.handlers['textDocument/hover'] = function(_, result, ctx, config)
+  config = config or {}
+  config.border = 'rounded'
+  config.timeout = 50
+  return vim.lsp.handlers.hover(_, result, ctx, config)
+end
 -- Keep last yank
 vim.keymap.set('v', 'p', '"_dP', { noremap = true })
 

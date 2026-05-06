@@ -77,7 +77,7 @@ return {
       -- Override default colors
       colors = {},
       -- Override highlight groups
-      highlights = {
+      hl = {
         -- LSP Diagnostics
         DiagnosticError = { fg = '#FF5555', bg = nil, style = 'bold' },
         DiagnosticWarn = { fg = '#F1FA8C', bg = nil, style = 'bold' },

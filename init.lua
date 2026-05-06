@@ -202,10 +202,9 @@ require('lazy').setup({
       ---@diagnostic disable-next-line: duplicate-set-field
       function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
         opts = opts or {}
-        opts.border = 'rounded' -- Or any other border
+        opts.border = 'rounded'
         return orig_util_open_floating_preview(contents, syntax, opts, ...)
       end
-
       -- vim.lsp.buf.hover() and any other windows like this one should have the border that you choosed above
 
       vim.api.nvim_create_autocmd('LspAttach', {
@@ -394,11 +393,12 @@ require('lazy').setup({
 
   require 'kickstart.plugins.conform', -- Autoformat
   require 'kickstart.plugins.blink', -- Autocompletion
+  require 'kickstart.plugins.osc52',
   require 'kickstart.plugins.black-metal', -- Theme
   require 'kickstart.plugins.themes.nightfox',
   require 'kickstart.plugins.todo', -- Highlight todo, notes, etc in comments
   require 'kickstart.plugins.mini', -- Collection of small plugins
-  require 'kickstart.plugins.treesitter', -- Treesitter
+  -- require 'kickstart.plugins.treesitter', -- Treesitter
   require 'kickstart.plugins.themery',
   -- require 'kickstart.plugins.lualine',
 
