@@ -31,6 +31,7 @@ return {
     -- other themes you want installed
     local other_themes = {
       'terafox',
+      'darkvoid',
     }
 
     -- merge both lists for Themery picker
