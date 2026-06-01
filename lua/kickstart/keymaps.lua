@@ -10,6 +10,7 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR><Esc>')
 vim.keymap.set('n', 'x', '"_x', { noremap = true, silent = true })
 
 vim.keymap.set('n', 'dw', '"_dw', { noremap = true, silent = true })
+vim.keymap.set('n', 'dd', '"_dd', { noremap = true, silent = true })
 vim.keymap.set('v', 'd', '"_d', { noremap = true, silent = true })
 
 vim.keymap.set('n', 'é', '$', { noremap = true, silent = true })
@@ -55,6 +56,9 @@ vim.keymap.set('n', '<leader>wv', '<C-w>v', { noremap = true })
 vim.keymap.set('n', '<leader>wh', '<C-w>h', { noremap = true })
 vim.keymap.set('n', '<leader>we', '<C-w>=', { noremap = true })
 vim.keymap.set('n', '<leader>wc', ':close<CR>', { noremap = true })
+
+vim.keymap.set('n', '<leader>wtv', '<cmd>vert term<CR>', { noremap = true })
+vim.keymap.set('n', '<leader>wth', '<cmd>split<CR> <cmd>term<CR>', { noremap = true })
 
 -- Diagnostics
 vim.keymap.set('n', '<S-j>', vim.diagnostic.open_float, { noremap = true })
