@@ -32,6 +32,7 @@ return {
     local other_themes = {
       'terafox',
       'darkvoid',
+      'catppuccin',
     }
 
     -- merge both lists for Themery picker
