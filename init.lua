@@ -395,12 +395,14 @@ require('lazy').setup({
   require 'kickstart.plugins.blink', -- Autocompletion
   require 'kickstart.plugins.osc52',
   require 'kickstart.plugins.black-metal', -- Theme
+  require 'kickstart.plugins.odin', -- Theme
   require 'kickstart.plugins.themes.nightfox',
   require 'kickstart.plugins.themes.darkvoid',
   require 'kickstart.plugins.themes.catppuccin',
+  require 'kickstart.plugins.themes.shado',
   require 'kickstart.plugins.todo', -- Highlight todo, notes, etc in comments
   require 'kickstart.plugins.mini', -- Collection of small plugins
-  -- require 'kickstart.plugins.treesitter', -- Treesitter
+  require 'kickstart.plugins.treesitter', -- Treesitter
   require 'kickstart.plugins.themery',
   -- require 'kickstart.plugins.lualine',
 

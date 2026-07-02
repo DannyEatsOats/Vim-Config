@@ -33,10 +33,12 @@ return {
       'terafox',
       'darkvoid',
       'catppuccin',
+      'shado',
     }
 
     -- merge both lists for Themery picker
-    local all_themes = vim.list_extend(vim.deepcopy(blackmetal_variants), other_themes)
+    -- local all_themes = vim.list_extend(vim.deepcopy(blackmetal_variants), other_themes)
+    local all_themes = other_themes
 
     require('themery').setup {
       themes = all_themes,
