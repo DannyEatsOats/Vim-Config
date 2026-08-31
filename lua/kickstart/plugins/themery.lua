@@ -34,6 +34,7 @@ return {
       'darkvoid',
       'catppuccin',
       'shado',
+      'lackluster',
     }
 
     -- merge both lists for Themery picker

@@ -42,10 +42,10 @@ local function transparent()
   end
 end
 
-vim.api.nvim_create_autocmd('ColorScheme', {
-  callback = function()
-    vim.schedule(function()
-      transparent()
-    end)
-  end,
-})
+-- vim.api.nvim_create_autocmd('ColorScheme', {
+--  callback = function()
+--    vim.schedule(function()
+--      transparent()
+--    end)
+--  end,
+--})

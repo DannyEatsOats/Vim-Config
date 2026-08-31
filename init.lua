@@ -400,10 +400,11 @@ require('lazy').setup({
   require 'kickstart.plugins.themes.darkvoid',
   require 'kickstart.plugins.themes.catppuccin',
   require 'kickstart.plugins.themes.shado',
+  require 'kickstart.plugins.themes.lackluster',
   require 'kickstart.plugins.todo', -- Highlight todo, notes, etc in comments
   require 'kickstart.plugins.mini', -- Collection of small plugins
   require 'kickstart.plugins.treesitter', -- Treesitter
-  require 'kickstart.plugins.themery',
+  -- require 'kickstart.plugins.themery',
   -- require 'kickstart.plugins.lualine',
 
   require 'kickstart.plugins.bufferline',
@@ -435,3 +436,6 @@ require('lazy').setup({
     },
   },
 })
+
+vim.opt.background = 'light' -- or "light"
+vim.cmd 'colorscheme sakura'
