@@ -395,10 +395,10 @@ require('lazy').setup({
   require 'kickstart.plugins.blink', -- Autocompletion
   require 'kickstart.plugins.osc52',
   require 'kickstart.plugins.black-metal', -- Theme
-  require 'kickstart.plugins.odin', -- Theme
   require 'kickstart.plugins.themes.nightfox',
   require 'kickstart.plugins.themes.darkvoid',
   require 'kickstart.plugins.themes.catppuccin',
+  require 'kickstart.plugins.themes.vague',
   require 'kickstart.plugins.themes.shado',
   require 'kickstart.plugins.themes.lackluster',
   require 'kickstart.plugins.todo', -- Highlight todo, notes, etc in comments
@@ -408,6 +408,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.lualine',
 
   require 'kickstart.plugins.bufferline',
+  require 'kickstart.plugins.barbecue',
   require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
@@ -437,5 +438,6 @@ require('lazy').setup({
   },
 })
 
-vim.opt.background = 'light' -- or "light"
-vim.cmd 'colorscheme sakura'
+vim.opt.background = 'dark' -- or "light"
+-- vim.cmd 'colorscheme sakura'
+vim.cmd 'colorscheme vague'
